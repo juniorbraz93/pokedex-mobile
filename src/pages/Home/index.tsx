@@ -1,8 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
 import Card, { PokemonProps, PokemonTypeProps } from "../../components/Card";
+import FadeAnimation from "../../components/FadeAnimation";
 import api from "../../services/api";
 import * as S from "./styles";
+
 interface Request {
   id: number;
   types: PokemonTypeProps[];
@@ -50,7 +52,11 @@ export default function Home() {
         showsVerticalScrollIndicator={false}
         data={pokemons}
         keyExtractor={(pokemon) => pokemon.id.toString()}
-        renderItem={({ item: pokemon }) => <Card data={pokemon} />}
+        renderItem={({ item: pokemon }) => (
+          <FadeAnimation>
+            <Card data={pokemon} />
+          </FadeAnimation>
+        )}
       />
     </S.Container>
   );
