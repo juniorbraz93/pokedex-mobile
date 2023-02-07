@@ -1,20 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
-import Card from "../../components/Card";
+import Card, { PokemonProps, PokemonTypeProps } from "../../components/Card";
 import api from "../../services/api";
 import * as S from "./styles";
-
-export interface PokemonTypeProps {
-  type: string;
-}
-
-export interface PokemonProps {
-  name: string;
-  url: string;
-  id: number;
-  types: PokemonTypeProps[];
-}
-
 interface Request {
   id: number;
   types: PokemonTypeProps[];
@@ -24,7 +12,7 @@ export default function Home() {
   const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
   useEffect(() => {
     async function getAllPokemon() {
-      const response = await api.get("pokemon");
+      const response = await api.get("pokemon?limit=150&offset=0");
 
       const { results } = response.data;
 
