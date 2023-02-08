@@ -7,6 +7,7 @@ import api from "../../services/api";
 import * as S from "./styles";
 
 import pokebellHeader from "../../assets/img/pokeball.png";
+import AnimatedLottieView from "lottie-react-native";
 
 interface Request {
   id: number;
@@ -62,7 +63,12 @@ export default function Home() {
     <>
       {load ? (
         <S.LoadContainer>
-          <S.Loading size="large" color="#EE1515" />
+          <AnimatedLottieView
+            autoPlay
+            source={require("../Welcome/pokeball.json")}
+            style={{ width: 100 }}
+            loop
+          />
         </S.LoadContainer>
       ) : (
         <S.Container>

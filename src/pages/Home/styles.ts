@@ -1,4 +1,6 @@
 import styled, { css } from "styled-components/native";
+import { LinearGradient } from "expo-linear-gradient";
+
 import { Dimensions } from "react-native";
 
 const windowWidth = Dimensions.get("window").width;
@@ -32,5 +34,3 @@ export const LoadContainer = styled.View`
   align-items: center;
   flex: 1;
 `;
-
-export const Loading = styled.ActivityIndicator``;

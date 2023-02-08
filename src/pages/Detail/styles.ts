@@ -2,6 +2,7 @@ import styled, { css } from "styled-components/native";
 import { TypeName } from ".";
 
 import * as Progress from "react-native-progress";
+import { LinearGradient } from "expo-linear-gradient";
 
 type TypeProps = {
   type: TypeName;
@@ -181,5 +182,3 @@ export const LoadContainer = styled.View`
   align-items: center;
   flex: 1;
 `;
-
-export const Loading = styled.ActivityIndicator``;

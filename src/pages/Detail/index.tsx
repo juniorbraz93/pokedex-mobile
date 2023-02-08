@@ -9,6 +9,7 @@ import { Feather } from "@expo/vector-icons";
 import cicle from "../../assets/img/circle.png";
 import FadeAnimation from "../../components/FadeAnimation";
 import dots from "./img/dots.png";
+import AnimatedLottieView from "lottie-react-native";
 
 type RouteParams = {
   pokemonId: number;
@@ -120,7 +121,12 @@ export default function Detail() {
     <>
       {load ? (
         <S.LoadContainer>
-          <S.Loading size="large" color="#EE1515" />
+          <AnimatedLottieView
+            autoPlay
+            source={require("../Welcome/pokeball.json")}
+            style={{ width: 100 }}
+            loop
+          />
         </S.LoadContainer>
       ) : (
         <ScrollView style={{ flex: 1, backgroundColor: "#FFF" }}>
