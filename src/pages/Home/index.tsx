@@ -62,7 +62,7 @@ export default function Home() {
     <>
       {load ? (
         <S.LoadContainer>
-          <S.Text>Carregando...</S.Text>
+          <S.Loading size="large" color="#EE1515" />
         </S.LoadContainer>
       ) : (
         <S.Container>

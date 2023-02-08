@@ -33,4 +33,4 @@ export const LoadContainer = styled.View`
   flex: 1;
 `;
 
-export const Text = styled.Text``;
+export const Loading = styled.ActivityIndicator``;

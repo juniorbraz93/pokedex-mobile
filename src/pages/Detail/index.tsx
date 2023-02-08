@@ -120,7 +120,7 @@ export default function Detail() {
     <>
       {load ? (
         <S.LoadContainer>
-          <S.Text>Carregando...</S.Text>
+          <S.Loading size="large" color="#EE1515" />
         </S.LoadContainer>
       ) : (
         <ScrollView style={{ flex: 1, backgroundColor: "#FFF" }}>
