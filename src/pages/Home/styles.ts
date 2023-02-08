@@ -26,3 +26,11 @@ export const Title = styled.Text`
     color: ${theme.colors.text.lightGray};
   `}
 `;
+
+export const LoadContainer = styled.View`
+  justify-content: center;
+  align-items: center;
+  flex: 1;
+`;
+
+export const Text = styled.Text``;

@@ -16,6 +16,8 @@ interface Request {
 export default function Home() {
   const { navigate } = useNavigation();
   const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
+  const [load, setLoad] = useState(true);
+
   useEffect(() => {
     async function getAllPokemon() {
       const response = await api.get("pokemon?limit=150&offset=0");
@@ -34,6 +36,7 @@ export default function Home() {
         })
       );
       setPokemons(payLoadPokemon);
+      setLoad(false);
     }
 
     getAllPokemon();
@@ -56,29 +59,37 @@ export default function Home() {
   }
 
   return (
-    <S.Container>
-      <FlatList
-        showsVerticalScrollIndicator={false}
-        ListHeaderComponent={
-          <>
-            <S.Header source={pokebellHeader} />
-            <S.Title>Pokédex</S.Title>
-          </>
-        }
-        contentContainerStyle={{
-          paddingHorizontal: 20,
-        }}
-        data={pokemons}
-        keyExtractor={(pokemon) => pokemon.id.toString()}
-        renderItem={({ item: pokemon }) => (
-          <Card
-            data={pokemon}
-            onPress={() => {
-              handleNavigation(pokemon.id);
+    <>
+      {load ? (
+        <S.LoadContainer>
+          <S.Text>Carregando...</S.Text>
+        </S.LoadContainer>
+      ) : (
+        <S.Container>
+          <FlatList
+            showsVerticalScrollIndicator={false}
+            ListHeaderComponent={
+              <>
+                <S.Header source={pokebellHeader} />
+                <S.Title>Pokédex</S.Title>
+              </>
+            }
+            contentContainerStyle={{
+              paddingHorizontal: 20,
             }}
+            data={pokemons}
+            keyExtractor={(pokemon) => pokemon.id.toString()}
+            renderItem={({ item: pokemon }) => (
+              <Card
+                data={pokemon}
+                onPress={() => {
+                  handleNavigation(pokemon.id);
+                }}
+              />
+            )}
           />
-        )}
-      />
-    </S.Container>
+        </S.Container>
+      )}
+    </>
   );
 }
