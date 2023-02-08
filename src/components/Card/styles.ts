@@ -1,5 +1,6 @@
 import styled, { css } from "styled-components/native";
 import { TypeName } from "../../pages/Detail";
+import * as Svg from "react-native-svg";
 
 interface PokemonType {
   type: TypeName;
@@ -63,7 +64,14 @@ export const PokemonType = styled.View<PokemonType>`
     margin-top: 5px;
     justify-content: center;
     align-items: center;
+    flex-direction: row;
   `}
+`;
+
+export const BadgeIcon = styled(Svg.Image)`
+  width: 15px;
+  height: 15px;
+  color: "#FFF";
 `;
 
 export const PokemonTypeText = styled.Text`

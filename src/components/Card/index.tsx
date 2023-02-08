@@ -26,10 +26,23 @@ type CardProps = {
 } & TouchableOpacityProps;
 
 export default function Card({ data, ...rest }: CardProps) {
+  function addZeroes(num: number, len: number) {
+    let numberWithZeroes = String(num);
+    let counter = numberWithZeroes.length;
+
+    while (counter < len) {
+      numberWithZeroes = "0" + numberWithZeroes;
+
+      counter++;
+    }
+
+    return numberWithZeroes;
+  }
+
   return (
     <S.Container type={data.types[0].type.name as TypeName} {...rest}>
       <S.LeftSide>
-        <S.PokemonId> #{data.id} </S.PokemonId>
+        <S.PokemonId> #{addZeroes(data.id, 3)} </S.PokemonId>
         <S.PokemonName> {data.name} </S.PokemonName>
         <S.ImageCardLeftSide source={dotsImage} />
 
@@ -39,6 +52,7 @@ export default function Card({ data, ...rest }: CardProps) {
               key={pokemonType.type.name}
               type={pokemonType.type.name as TypeName}
             >
+              <S.BadgeIcon href={`../../assets/img/bug.svg`} />
               <S.PokemonTypeText>{pokemonType.type.name}</S.PokemonTypeText>
             </S.PokemonType>
           ))}

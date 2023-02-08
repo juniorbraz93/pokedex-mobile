@@ -7,6 +7,7 @@ export default {
       White: "#FFF",
       Black: "#222224",
       lightGray: "rgba(23, 23, 27, 0.6)",
+      detail: "#747476",
     },
     backgroundTypes: {
       bug: "#8BD674",
