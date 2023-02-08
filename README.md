@@ -19,12 +19,12 @@ Layout baseado [Nesse project](https://www.figma.com/file/THLxZSlOoUYMZrjFg0Kl1M
 
 O projeto foi feito utilizando das seguintes tecnologias
 
-- Expo
-- React Native
-- Styled-Components
-- Typescript
-- Axios
-- Reanimated V2
+- ⚛️ Expo
+- ⚛️ React Native
+- 💅 Styled Components
+- 🔵 Typescript
+- 🌎 Axios
+- ⚛️ Reanimated V2
 
 ---
 
@@ -50,12 +50,22 @@ O projeto foi feito utilizando das seguintes tecnologias
 
 ## 💻 Funcionalidades
 
-- Listagem de pokemons da api
+- 🏠 Listagem de pokemons da api ✅
 
-- Visualizar detalhes do pokemon
+- 🏠 Visualizar detalhes do pokemon ✅
 
-- Listar hp, attack e etc
+- 🏠 Listar hp, attack e etc ✅
 
-- Listar Habilidades
+- 🏠 Listar Habilidades ✅
+
+- 🚧 Pesquisa pokemon ⚠️ (Em desenvolvimento)
+
+- 🚧 Filtros ⚠️ (Em desenvolvimento)
+
+- 🚧 Sobre pokemon ⚠️ (Em desenvolvimento)
+
+- 🚧 Evolução do pokemon e level de Evolução ⚠️ (Em desenvolvimento)
+
+- 🚧 Próximas gerações ⚠️ (Em desenvolvimento)
 
 Desenvolvido 🧑‍💻 por Junior Braz
