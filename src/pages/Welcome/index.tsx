@@ -1,8 +1,15 @@
 import React from "react";
 import AnimatedLottieView from "lottie-react-native";
 import * as S from "./styles";
+import { useNavigation } from "@react-navigation/native";
 
 export default function Welcome() {
+  const { navigate } = useNavigation();
+
+  function handlerNavigation() {
+    navigate("Home");
+  }
+
   return (
     <S.Container>
       <S.Header>
@@ -18,7 +25,7 @@ export default function Welcome() {
         />
       </S.Content>
       <S.Footer>
-        <S.Button>
+        <S.Button onPress={handlerNavigation}>
           <S.ButtonText>Entrar</S.ButtonText>
         </S.Button>
       </S.Footer>

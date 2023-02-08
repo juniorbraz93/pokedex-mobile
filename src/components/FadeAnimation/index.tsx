@@ -31,8 +31,8 @@ export default function FadeAnimation({
   });
 
   useEffect(() => {
-    cardOpacity.value = withTiming(1, { duration: 800 });
-    cardOffset.value = withTiming(0, { duration: 800 });
+    cardOpacity.value = withTiming(1, { duration: 1000 });
+    cardOffset.value = withTiming(0, { duration: 1000 });
   }, []);
 
   return (

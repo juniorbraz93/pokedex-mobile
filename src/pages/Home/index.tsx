@@ -1,9 +1,12 @@
 import React, { useEffect, useState } from "react";
 import { FlatList } from "react-native";
+import { useNavigation } from "@react-navigation/native";
+
 import Card, { PokemonProps, PokemonTypeProps } from "../../components/Card";
-import FadeAnimation from "../../components/FadeAnimation";
 import api from "../../services/api";
 import * as S from "./styles";
+
+import pokebellHeader from "../../assets/img/pokeball.png";
 
 interface Request {
   id: number;
@@ -11,6 +14,7 @@ interface Request {
 }
 
 export default function Home() {
+  const { navigate } = useNavigation();
   const [pokemons, setPokemons] = useState<PokemonProps[]>([]);
   useEffect(() => {
     async function getAllPokemon() {
@@ -39,23 +43,40 @@ export default function Home() {
     const response = await api.get(url);
 
     const { id, types } = response.data;
-    // types[0].type.name
     return {
       id,
       types,
     };
   }
 
+  function handleNavigation(pokemonId: number) {
+    navigate("Detail", {
+      pokemonId,
+    });
+  }
+
   return (
     <S.Container>
       <FlatList
         showsVerticalScrollIndicator={false}
+        ListHeaderComponent={
+          <>
+            <S.Header source={pokebellHeader} />
+            <S.Title>Pokédex</S.Title>
+          </>
+        }
+        contentContainerStyle={{
+          paddingHorizontal: 20,
+        }}
         data={pokemons}
         keyExtractor={(pokemon) => pokemon.id.toString()}
         renderItem={({ item: pokemon }) => (
-          <FadeAnimation>
-            <Card data={pokemon} />
-          </FadeAnimation>
+          <Card
+            data={pokemon}
+            onPress={() => {
+              handleNavigation(pokemon.id);
+            }}
+          />
         )}
       />
     </S.Container>
