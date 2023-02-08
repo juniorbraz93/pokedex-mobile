@@ -1,7 +1,8 @@
 import styled, { css } from "styled-components/native";
+import { TypeName } from "../../pages/Detail";
 
 interface PokemonType {
-  type: string;
+  type: TypeName;
 }
 
 export const Container = styled.TouchableOpacity<PokemonType>`

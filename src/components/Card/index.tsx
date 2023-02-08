@@ -6,6 +6,7 @@ import * as S from "./styles";
 import dotsImage from "../../assets/img/dots.png";
 import pokeball from "../../assets/img/pokeballCard.png";
 import FadeAnimation from "../FadeAnimation";
+import { TypeName } from "../../pages/Detail";
 
 export type PokemonTypeProps = {
   type: {
@@ -26,7 +27,7 @@ type CardProps = {
 
 export default function Card({ data, ...rest }: CardProps) {
   return (
-    <S.Container type={data.types[0].type.name} {...rest}>
+    <S.Container type={data.types[0].type.name as TypeName} {...rest}>
       <S.LeftSide>
         <S.PokemonId> #{data.id} </S.PokemonId>
         <S.PokemonName> {data.name} </S.PokemonName>
@@ -36,7 +37,7 @@ export default function Card({ data, ...rest }: CardProps) {
           {data.types.map((pokemonType) => (
             <S.PokemonType
               key={pokemonType.type.name}
-              type={pokemonType.type.name}
+              type={pokemonType.type.name as TypeName}
             >
               <S.PokemonTypeText>{pokemonType.type.name}</S.PokemonTypeText>
             </S.PokemonType>
