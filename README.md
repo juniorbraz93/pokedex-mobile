@@ -32,7 +32,7 @@ O projeto foi feito utilizando das seguintes tecnologias
 
 ```bash
   #clonar o repositorio
-  $ git clone https://github.com/juniorbraz93/pokedex-mobile
+  $ git clone https://github.com/juniorbraz93/pokedex-mobile.git
 
   #entrar na pasta do projeto
   $ cd pokedex-mobile
